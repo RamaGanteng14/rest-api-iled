@@ -7,9 +7,8 @@ import com.enigma.Instructor_Led.dto.response.QuestionResponse;
 import java.util.List;
 
 public interface QuestionService {
-    QuestionResponse create(CreateQuestionRequest createQuestionRequest);
-    QuestionResponse answerQuestions(CreateAnswerRequest answerRequest);
-    QuestionResponse getById(String id);
-    List<QuestionResponse> getAll();
-    void delete(String id);
+    QuestionResponse createQuestion(CreateQuestionRequest request, String traineeId, String scheduleId);
+    QuestionResponse answerQuestion(String questionId, String answer);
+    List<QuestionResponse> getQuestionsBySchedule(String scheduleId);
+    List<QuestionResponse> getQuestionsByTrainee(String traineeId);
 }

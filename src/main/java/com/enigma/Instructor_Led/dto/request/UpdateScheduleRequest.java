@@ -26,6 +26,9 @@ public class UpdateScheduleRequest {
     @NotBlank(message = "Topic is required")
     private String topic;
 
+    @NotBlank(message = "link is required")
+    private String link;
+
     @NotBlank(message = "Trainer is required")
     private String trainerId;
 

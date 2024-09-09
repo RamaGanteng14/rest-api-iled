@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 
+import javax.lang.model.element.Name;
 import java.util.Date;
 import java.util.List;
 
@@ -32,10 +33,17 @@ public class Schedule {
     @OneToMany(mappedBy = "schedule")
     private List<DocumentationImage> documentationImages;
 
+    @Column(name = "link")
+    private String link;
+
+    @Column(name = "programming_language")
+    private String programmingLanguage;
+
     @ManyToOne
     @JoinColumn(name = "trainer_id", nullable = false)
     private Trainer trainer;
 
     @OneToMany(mappedBy = "schedule")
     private List<Question> questions;
+
 }

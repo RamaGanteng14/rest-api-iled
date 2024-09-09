@@ -26,22 +26,9 @@ public class TraineeServiceImpl implements TraineeService {
     private final ProgrammingLanguageRepository programmingLanguageRepository;
 
     @Override
-    public TraineeResponse create(CreateTraineeRequest createTraineeRequest) {
-        ProgrammingLanguage programmingLanguage = programmingLanguageRepository.findById(createTraineeRequest.getProgrammingLanguageId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "notfound"));
-        Trainee trainee = Trainee.builder()
-                .name(createTraineeRequest.getName())
-                .nik(createTraineeRequest.getNik())
-                .birthDate(createTraineeRequest.getBirthDate())
-                .address(createTraineeRequest.getAddress())
-                .email(createTraineeRequest.getEmail())
-                .phoneNumber(createTraineeRequest.getPhoneNumber())
-                .programmingLanguage(programmingLanguage)
-                .status(TraineeStatus.ACTIVE)
-                .build();
-
-        Trainee savedTrainee = traineeRepository.save(trainee);
-        return mapToResponse(savedTrainee);
-    }
+    public Trainee create(Trainee trainee) {
+        return traineeRepository.saveAndFlush(trainee);
+            }
 
     @Override
     public TraineeResponse update(UpdateTraineeRequest updateTraineeRequest) {

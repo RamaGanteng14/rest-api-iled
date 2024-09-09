@@ -24,16 +24,16 @@ public class TraineeController {
 
     private final TraineeService traineeService;
 
-    @PostMapping
-    public ResponseEntity<CommonResponse<TraineeResponse>> createTrainee(@RequestBody CreateTraineeRequest createTraineeRequest) {
-        TraineeResponse traineeResponse = traineeService.create(createTraineeRequest);
-        CommonResponse<TraineeResponse> response = CommonResponse.<TraineeResponse>builder()
-                .message("Trainee created successfully")
-                .statusCode(HttpStatus.CREATED.value())
-                .data(traineeResponse)
-                .build();
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
-    }
+//    @PostMapping
+//    public ResponseEntity<CommonResponse<TraineeResponse>> createTrainee(@RequestBody CreateTraineeRequest createTraineeRequest) {
+//        TraineeResponse traineeResponse = traineeService.create(createTraineeRequest);
+//        CommonResponse<TraineeResponse> response = CommonResponse.<TraineeResponse>builder()
+//                .message("Trainee created successfully")
+//                .statusCode(HttpStatus.CREATED.value())
+//                .data(traineeResponse)
+//                .build();
+//        return new ResponseEntity<>(response, HttpStatus.CREATED);
+//    }
 
     @PutMapping
     public ResponseEntity<CommonResponse<TraineeResponse>> updateTrainee(@RequestBody UpdateTraineeRequest updateTraineeRequest) {

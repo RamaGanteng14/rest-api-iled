@@ -10,7 +10,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -47,6 +49,11 @@ public class ProgrammingLanguageServiceImpl  implements ProgrammingLanguageServi
         } else {
             return null;
         }
+    }
+
+    @Override
+    public ProgrammingLanguage getOneById(String id) {
+        return programmingLanguageRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Programming Language not found"));
     }
 
     @Override

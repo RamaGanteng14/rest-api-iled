@@ -2,11 +2,15 @@ package com.enigma.Instructor_Led.entity;
 
 import com.enigma.Instructor_Led.constant.ConstantTable;
 import com.enigma.Instructor_Led.constant.UserRole;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -22,5 +26,8 @@ public class Role {
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private UserRole role;
+
+
+
 
 }

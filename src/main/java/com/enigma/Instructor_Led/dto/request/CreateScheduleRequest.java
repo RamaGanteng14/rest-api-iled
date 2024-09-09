@@ -21,6 +21,11 @@ public class CreateScheduleRequest {
     @NotBlank(message = "Topic is required")
     private String topic;
 
+    @NotBlank
+    private String link;
+
+    private String programmingLanguage;
+
     @NotBlank(message = "Trainer is required")
     private String trainerId;
 }
